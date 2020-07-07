@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.nexussystem.simpleProgram.entites.Category;
 import com.nexussystem.simpleProgram.entites.Order;
 import com.nexussystem.simpleProgram.entites.OrderItem;
+import com.nexussystem.simpleProgram.entites.Payment;
 import com.nexussystem.simpleProgram.entites.Product;
 import com.nexussystem.simpleProgram.entites.User;
 import com.nexussystem.simpleProgram.entites.enuns.OrderStatus;
@@ -86,6 +87,9 @@ public class TestConfig implements CommandLineRunner{
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"),o1);
+		o1.setPayment(pay1);
+		orderRepository.save(o1);
 	}
 	
 
